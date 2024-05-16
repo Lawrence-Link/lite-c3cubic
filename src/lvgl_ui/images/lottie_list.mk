@@ -1,1 +1,1 @@
-GEN_CSRCS += 
+GEN_CSRCS += lottie_make.c

@@ -1,0 +1,3 @@
+[submodule "lib/lv_lib_rlottie"]
+	path = lib/lv_lib_rlottie
+	url = https://github.com/lvgl/lv_lib_rlottie.git

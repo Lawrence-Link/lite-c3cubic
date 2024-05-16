@@ -22,10 +22,13 @@ typedef struct
 	bool screen_del;
 	lv_obj_t *screen_label_time;
 	lv_obj_t *screen_label_date;
-	lv_obj_t *screen_bar_idle;
-	lv_obj_t *screen_led_1;
+	lv_obj_t *screen_lottie_1;
 	lv_obj_t *screen_1;
 	bool screen_1_del;
+	lv_obj_t *screen_1_label_1;
+	lv_obj_t *screen_1_label_2;
+	lv_obj_t *screen_2;
+	bool screen_2_del;
 }lv_ui;
 
 typedef void (*ui_setup_scr_t)(lv_ui * ui);
@@ -61,10 +64,14 @@ extern lv_ui guider_ui;
 
 void setup_scr_screen(lv_ui *ui);
 void setup_scr_screen_1(lv_ui *ui);
+void setup_scr_screen_2(lv_ui *ui);
+#define LV_LOT_DECLARE(array_name) extern const uint8_t array_name[];
+LV_LOT_DECLARE(lottie_make);
 
-LV_FONT_DECLARE(lv_font_Acme_Regular_41)
+LV_FONT_DECLARE(lv_font_Acme_Regular_35)
 LV_FONT_DECLARE(lv_font_montserratMedium_16)
-LV_FONT_DECLARE(lv_font_AlexBrush_Regular_18)
+LV_FONT_DECLARE(lv_font_simhei_18)
+LV_FONT_DECLARE(lv_font_montserratMedium_35)
 
 
 #ifdef __cplusplus

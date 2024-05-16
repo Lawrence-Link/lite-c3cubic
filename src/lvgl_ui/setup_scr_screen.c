@@ -22,24 +22,25 @@ void setup_scr_screen(lv_ui *ui)
 	ui->screen = lv_obj_create(NULL);
 	lv_obj_set_size(ui->screen, 240, 240);
 	lv_obj_set_scrollbar_mode(ui->screen, LV_SCROLLBAR_MODE_OFF);
+	lv_obj_add_flag(ui->screen, LV_OBJ_FLAG_CLICKABLE);
 
 	//Write style for screen, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
 	lv_obj_set_style_bg_opa(ui->screen, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-	lv_obj_set_style_bg_color(ui->screen, lv_color_hex(0x160003), LV_PART_MAIN|LV_STATE_DEFAULT);
+	lv_obj_set_style_bg_color(ui->screen, lv_color_hex(0x000000), LV_PART_MAIN|LV_STATE_DEFAULT);
 	lv_obj_set_style_bg_grad_dir(ui->screen, LV_GRAD_DIR_NONE, LV_PART_MAIN|LV_STATE_DEFAULT);
 
 	//Write codes screen_label_time
 	ui->screen_label_time = lv_label_create(ui->screen);
-	lv_label_set_text(ui->screen_label_time, "06:05");
+	lv_label_set_text(ui->screen_label_time, "--:--:--");
 	lv_label_set_long_mode(ui->screen_label_time, LV_LABEL_LONG_WRAP);
-	lv_obj_set_pos(ui->screen_label_time, 18, 87);
+	lv_obj_set_pos(ui->screen_label_time, 18, 99);
 	lv_obj_set_size(ui->screen_label_time, 204, 38);
 
 	//Write style for screen_label_time, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
 	lv_obj_set_style_border_width(ui->screen_label_time, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
 	lv_obj_set_style_radius(ui->screen_label_time, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
 	lv_obj_set_style_text_color(ui->screen_label_time, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
-	lv_obj_set_style_text_font(ui->screen_label_time, &lv_font_Acme_Regular_41, LV_PART_MAIN|LV_STATE_DEFAULT);
+	lv_obj_set_style_text_font(ui->screen_label_time, &lv_font_Acme_Regular_35, LV_PART_MAIN|LV_STATE_DEFAULT);
 	lv_obj_set_style_text_opa(ui->screen_label_time, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
 	lv_obj_set_style_text_letter_space(ui->screen_label_time, 2, LV_PART_MAIN|LV_STATE_DEFAULT);
 	lv_obj_set_style_text_line_space(ui->screen_label_time, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
@@ -53,16 +54,16 @@ void setup_scr_screen(lv_ui *ui)
 
 	//Write codes screen_label_date
 	ui->screen_label_date = lv_label_create(ui->screen);
-	lv_label_set_text(ui->screen_label_date, "2024-05-19");
+	lv_label_set_text(ui->screen_label_date, "2024年5月16驲");
 	lv_label_set_long_mode(ui->screen_label_date, LV_LABEL_LONG_WRAP);
-	lv_obj_set_pos(ui->screen_label_date, 30, 135);
+	lv_obj_set_pos(ui->screen_label_date, 33, 146);
 	lv_obj_set_size(ui->screen_label_date, 174, 32);
 
 	//Write style for screen_label_date, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
 	lv_obj_set_style_border_width(ui->screen_label_date, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
 	lv_obj_set_style_radius(ui->screen_label_date, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
 	lv_obj_set_style_text_color(ui->screen_label_date, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
-	lv_obj_set_style_text_font(ui->screen_label_date, &lv_font_AlexBrush_Regular_18, LV_PART_MAIN|LV_STATE_DEFAULT);
+	lv_obj_set_style_text_font(ui->screen_label_date, &lv_font_simhei_18, LV_PART_MAIN|LV_STATE_DEFAULT);
 	lv_obj_set_style_text_opa(ui->screen_label_date, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
 	lv_obj_set_style_text_letter_space(ui->screen_label_date, 2, LV_PART_MAIN|LV_STATE_DEFAULT);
 	lv_obj_set_style_text_line_space(ui->screen_label_date, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
@@ -74,35 +75,13 @@ void setup_scr_screen(lv_ui *ui)
 	lv_obj_set_style_pad_left(ui->screen_label_date, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
 	lv_obj_set_style_shadow_width(ui->screen_label_date, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
 
-	//Write codes screen_bar_idle
-	ui->screen_bar_idle = lv_bar_create(ui->screen);
-	lv_obj_set_style_anim_time(ui->screen_bar_idle, 200, 0);
-	lv_bar_set_mode(ui->screen_bar_idle, LV_BAR_MODE_RANGE);
-	lv_bar_set_range(ui->screen_bar_idle, 0, 100);
-	lv_bar_set_value(ui->screen_bar_idle, 1, LV_ANIM_ON);
-	lv_bar_set_start_value(ui->screen_bar_idle, 10, LV_ANIM_ON);
-	lv_obj_set_pos(ui->screen_bar_idle, 35, 169);
-	lv_obj_set_size(ui->screen_bar_idle, 169, 12);
+	//Write codes screen_lottie_1
+	ui->screen_lottie_1 = lv_rlottie_create_from_raw(ui->screen, 100, 100, (const void *)lottie_make);
+	lv_obj_set_pos(ui->screen_lottie_1, 70, 70);
+	lv_obj_set_size(ui->screen_lottie_1, 100, 100);
 
-	//Write style for screen_bar_idle, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-	lv_obj_set_style_bg_opa(ui->screen_bar_idle, 60, LV_PART_MAIN|LV_STATE_DEFAULT);
-	lv_obj_set_style_bg_color(ui->screen_bar_idle, lv_color_hex(0x2195f6), LV_PART_MAIN|LV_STATE_DEFAULT);
-	lv_obj_set_style_bg_grad_dir(ui->screen_bar_idle, LV_GRAD_DIR_NONE, LV_PART_MAIN|LV_STATE_DEFAULT);
-	lv_obj_set_style_radius(ui->screen_bar_idle, 10, LV_PART_MAIN|LV_STATE_DEFAULT);
-	lv_obj_set_style_shadow_width(ui->screen_bar_idle, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-
-	//Write style for screen_bar_idle, Part: LV_PART_INDICATOR, State: LV_STATE_DEFAULT.
-	lv_obj_set_style_bg_opa(ui->screen_bar_idle, 255, LV_PART_INDICATOR|LV_STATE_DEFAULT);
-	lv_obj_set_style_bg_color(ui->screen_bar_idle, lv_color_hex(0x2195f6), LV_PART_INDICATOR|LV_STATE_DEFAULT);
-	lv_obj_set_style_bg_grad_dir(ui->screen_bar_idle, LV_GRAD_DIR_NONE, LV_PART_INDICATOR|LV_STATE_DEFAULT);
-	lv_obj_set_style_radius(ui->screen_bar_idle, 10, LV_PART_INDICATOR|LV_STATE_DEFAULT);
-
-	//Write codes screen_led_1
-	ui->screen_led_1 = lv_led_create(ui->screen);
-	lv_led_set_brightness(ui->screen_led_1, 255);
-	lv_led_set_color(ui->screen_led_1, lv_color_hex(0x0093ff));
-	lv_obj_set_pos(ui->screen_led_1, 115, 110);
-	lv_obj_set_size(ui->screen_led_1, 11, 10);
+	//Write style for screen_lottie_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+	lv_obj_set_style_bg_opa(ui->screen_lottie_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
 
 	//The custom code of screen.
 	
@@ -110,4 +89,6 @@ void setup_scr_screen(lv_ui *ui)
 	//Update current screen layout.
 	lv_obj_update_layout(ui->screen);
 
+	//Init events for screen.
+	events_init_screen(ui);
 }
